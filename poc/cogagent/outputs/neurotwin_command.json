@@ -1,0 +1,27 @@
+{
+  "source": "CogAgent",
+  "type": "ui_action",
+  "state": {
+    "description": "The Microsoft Teams toggle is currently on, indicating that screen recording permission is enabled for Microsoft Teams."
+  },
+  "decision": {
+    "action": "Click the toggle switch next to Microsoft Teams to turn off the screen recording permission."
+  },
+  "command": {
+    "operation": "click",
+    "target": {
+      "element": "[AXGroup]",
+      "bbox_1000": [
+        857,
+        367,
+        908,
+        397
+      ],
+      "center_1000": [
+        882,
+        382
+      ]
+    }
+  },
+  "timestamp": "2026-08-13T22:40:23.489006+00:00"
+}
