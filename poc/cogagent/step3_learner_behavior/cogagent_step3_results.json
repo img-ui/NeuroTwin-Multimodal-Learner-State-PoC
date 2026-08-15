@@ -1,0 +1,27 @@
+[
+  {
+    "screenshot": "learner_01_correct.png",
+    "scenario": "Correct interaction",
+    "cogagent_response": "Interacting with: The red sphere in the center of the screen.\nIncorrect interaction evidence: None\nObservable action: The learner has selected the red sphere, which is indicated by the green glow around it."
+  },
+  {
+    "screenshot": "learner_02_incorrect.png",
+    "scenario": "Incorrect interaction",
+    "cogagent_response": "Interacting with: The blue cube on the table\nIncorrect interaction evidence: The red sphere was not selected, and the 'Incorrect!' message is displayed.\nObservable action: The learner has selected the blue cube instead of the red sphere."
+  },
+  {
+    "screenshot": "learner_03_repeated_error.png",
+    "scenario": "Repeated incorrect interaction",
+    "cogagent_response": "Interacting with: The blue cube with a red outline.\nIncorrect interaction evidence: The red 'X' button on the left side of the 'Incorrect again!' message indicates a previous incorrect selection.\nObservable action: The learner has selected the blue cube with a red outline, which is not the red sphere as instructed."
+  },
+  {
+    "screenshot": "learner_04_help.png",
+    "scenario": "Help-seeking",
+    "cogagent_response": "Interacting with: The red sphere in the center of the pop-up window.\nIncorrect interaction evidence: The blue button labeled 'Got it!' indicates that the learner has understood the instruction, suggesting that the task of selecting the red sphere is being completed.\nObservable action: The learner has clicked on the red sphere in the center of the pop-up window, which is likely an element intended to close the pop-up or confirm understanding."
+  },
+  {
+    "screenshot": "learner_05_complete.png",
+    "scenario": "Activity completion",
+    "cogagent_response": "Interacting with: The red sphere in the center of the screen.\nIncorrect interaction evidence: None\nObservable action: The learner has selected the red sphere, which is highlighted with a green circle, and the task is marked as completed."
+  }
+]
