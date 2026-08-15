@@ -1,6 +1,5 @@
 # Step 5 — Behavioral Mapping
 
-# Step 5 — Behavioral Mapping
 
 This step converts observable model outputs into three simple behavioral labels using deterministic rule-based mapping.
 
