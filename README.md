@@ -1,4 +1,4 @@
-# NeuroTwin-Multimodal-Learner-State-PoC
+# NeuroTwin-Learner-State-PoC
 Proof of concept for multimodal learner interaction interpretation using CogAgent and InternLM-XComposer-2.5 for our NeuroTwin project
 Evet. Bence artık **final root `README.md`** yapalım. Bu README hocanın repoyu açınca ilk göreceği şey olacak; o yüzden Step 6’daki ayrıntılı karşılaştırmayı tekrar tamamen kopyalamak yerine **PoC ne yaptı → pipeline → deney → sonuç → limitations → dosyalar** şeklinde kısa ve akademik tutalım.
 
