@@ -1,0 +1,47 @@
+[
+  {
+    "example": 1,
+    "scenario": "Correct interaction",
+    "task_progress": true,
+    "incorrect_interaction": false,
+    "repeated_error": false,
+    "help_requested": false,
+    "inactivity_threshold_exceeded": false
+  },
+  {
+    "example": 2,
+    "scenario": "Incorrect interaction",
+    "task_progress": false,
+    "incorrect_interaction": true,
+    "repeated_error": false,
+    "help_requested": false,
+    "inactivity_threshold_exceeded": false
+  },
+  {
+    "example": 3,
+    "scenario": "Repeated incorrect interaction",
+    "task_progress": false,
+    "incorrect_interaction": true,
+    "repeated_error": true,
+    "help_requested": false,
+    "inactivity_threshold_exceeded": false
+  },
+  {
+    "example": 4,
+    "scenario": "Help-seeking",
+    "task_progress": false,
+    "incorrect_interaction": false,
+    "repeated_error": false,
+    "help_requested": true,
+    "inactivity_threshold_exceeded": false
+  },
+  {
+    "example": 5,
+    "scenario": "Activity completion",
+    "task_progress": true,
+    "incorrect_interaction": false,
+    "repeated_error": false,
+    "help_requested": false,
+    "inactivity_threshold_exceeded": false
+  }
+]
