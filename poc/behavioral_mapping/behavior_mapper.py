@@ -1,3 +1,6 @@
+import json
+
+
 def assign_behavioral_label(
     task_progress=False,
     incorrect_interaction=False,
@@ -6,72 +9,58 @@ def assign_behavioral_label(
     inactivity_threshold_exceeded=False,
 ):
     """
-    Convert observable learner-behavior evidence into one of the
-    three NeuroTwin behavioral labels.
-
-    Labels:
+    Convert current observable learner-behavior evidence into one of:
     - Normal Process
     - Needs Support
     - Repeated Error
+
+    Current behavior is prioritized over previous interaction history.
     """
 
+    # Explicit help-seeking is the current action
+    if help_requested:
+        return "Needs Support"
+
+    # Current interaction is the second/subsequent repeated error
     if repeated_error:
         return "Repeated Error"
 
-    if (
-        incorrect_interaction
-        or help_requested
-        or inactivity_threshold_exceeded
-    ):
+    # No progress without a repeated-error event
+    if incorrect_interaction or inactivity_threshold_exceeded:
         return "Needs Support"
 
+    # Successful current progression/completion
     if task_progress:
         return "Normal Process"
 
     return "Unclassified"
 
 
-examples = [
-    {
-        "example": 1,
-        "observation": "Correct red sphere selected",
-        "task_progress": True,
-    },
-    {
-        "example": 2,
-        "observation": "Incorrect blue cube selected",
-        "incorrect_interaction": True,
-    },
-    {
-        "example": 3,
-        "observation": "Incorrect interaction repeated",
-        "repeated_error": True,
-    },
-    {
-        "example": 4,
-        "observation": "Help interface opened",
-        "help_requested": True,
-    },
-    {
-        "example": 5,
-        "observation": "Correct selection and activity completion",
-        "task_progress": True,
-    },
-]
-
-
-for example in examples:
-    label = assign_behavioral_label(
-        task_progress=example.get("task_progress", False),
-        incorrect_interaction=example.get("incorrect_interaction", False),
-        repeated_error=example.get("repeated_error", False),
-        help_requested=example.get("help_requested", False),
-        inactivity_threshold_exceeded=example.get(
+def label_from_evidence(evidence):
+    return assign_behavioral_label(
+        task_progress=evidence.get("task_progress", False),
+        incorrect_interaction=evidence.get("incorrect_interaction", False),
+        repeated_error=evidence.get("repeated_error", False),
+        help_requested=evidence.get("help_requested", False),
+        inactivity_threshold_exceeded=evidence.get(
             "inactivity_threshold_exceeded", False
         ),
     )
 
-    print(
-        f"Example {example['example']}: "
-        f"{example['observation']} -> {label}"
+
+with open("model_evidence.json", "r", encoding="utf-8") as f:
+    examples = json.load(f)
+
+
+for example in examples:
+    cogagent_label = label_from_evidence(
+        example["cogagent_evidence"]
     )
+
+    ixc_label = label_from_evidence(
+        example["ixc_evidence"]
+    )
+
+    print(f"\nExample {example['example']} — {example['scenario']}")
+    print(f"CogAgent label: {cogagent_label}")
+    print(f"IXC label:      {ixc_label}")
