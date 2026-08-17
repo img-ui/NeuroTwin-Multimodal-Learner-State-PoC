@@ -83,36 +83,3 @@ An earlier shorter prompt caused the model to incorrectly conclude that the task
 
 This PoC confirms that CogAgent can be used as the GUI-understanding and grounding component of the NeuroTwin pipeline.
 
-## Learner Interaction Experiment
-
-After verifying the CogAgent setup with the GUI-grounding sanity check,
-the model was tested on five controlled NeuroTwin learner-interaction
-screenshots.
-
-The five examples represented:
-
-1. Correct interaction
-2. Incorrect interaction
-3. Repeated incorrect interaction
-4. Help-seeking
-5. Activity completion
-
-Each screenshot was processed independently.
-
-CogAgent was prompted to describe observable interaction evidence rather
-than infer cognitive or emotional states.
-
-The resulting observations were later used as input to the rule-based
-behavioral mapping stage.
-
-### Main Observation
-
-CogAgent generally provided detailed object- and UI-level descriptions.
-
-However, because each screenshot was analyzed independently, it had
-limited access to temporal interaction context. The clearest limitation
-appeared in the help-seeking example, where CogAgent misinterpreted the
-Help interface as an interaction with the red sphere.
-
-This motivated the sequence-level experiment with
-InternLM-XComposer-2.5.
