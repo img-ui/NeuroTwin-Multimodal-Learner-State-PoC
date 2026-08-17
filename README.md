@@ -1,10 +1,9 @@
 # NeuroTwin-Multimodal-Learner-State-PoC
 Proof of concept for multimodal learner interaction interpretation using CogAgent and InternLM-XComposer-2.5 for our NeuroTwin project
-Evet. Bence artık **final root `README.md`** yapalım. Bu README hocanın repoyu açınca ilk göreceği şey olacak; o yüzden Step 6’daki ayrıntılı karşılaştırmayı tekrar tamamen kopyalamak yerine **PoC ne yaptı → pipeline → deney → sonuç → limitations → dosyalar** şeklinde kısa ve akademik tutalım.
 
 ## Overview
 
-This repository contains a small proof of concept for the NeuroTwin project.
+This repository contains a part of proof of concept for the NeuroTwin project.
 
 The goal of this experiment was to investigate whether multimodal vision-language models can extract useful interaction evidence from learner-interface screenshots and whether this evidence can later be converted into simple behavioral labels.
 
@@ -18,20 +17,6 @@ The models were not used to directly infer cognitive load, confusion, stress, at
 Instead, the PoC follows the pipeline:
 
 **Learner interaction → Visual evidence → Model observation → Rule-based behavioral mapping**
-
----
-
-## Research Question
-
-Can multimodal models provide useful observable evidence about learner interactions that can support a later learner-state interpretation system?
-
-The PoC specifically evaluates whether the models can identify interaction patterns such as:
-
-- normal task progress,
-- incorrect interaction,
-- repeated error,
-- help-seeking,
-- and activity completion.
 
 ---
 
@@ -117,9 +102,9 @@ The two models produced the same behavioral label for four of the five examples.
 
 The main disagreement occurred in the help-seeking example.
 
-CogAgent did not correctly interpret the Help interface and instead described an interaction with the red sphere.
+CogAgent did not correctly interpret the Help interface and instead described an correct interaction with the red sphere.
 
-IXC correctly detected that the learner had opened the help options. However, it also introduced a stronger sequential interpretation by suggesting that another incorrect selection occurred after Help was opened, which was not clearly supported by the screenshot alone.
+IXC correctly detected that the learner had opened the help options. However, it also introduced a stronger sequential interpretation by suggesting that another incorrect selection occurred after Help was opened, which was not clearly supported by the screenshot.
 
 ---
 
@@ -170,32 +155,6 @@ This conclusion is limited to the small controlled PoC presented here and should
 
 ---
 
-## Current NeuroTwin Concept
-
-The current broader NeuroTwin concept combines multiple sources of observable evidence:
-
-```text
-XR / Learning Interface
-        │
-        ├── Visual Interaction Evidence
-        │       └── Multimodal Model
-        │
-        ├── Facial / Gaze Evidence
-        │       └── OpenFace
-        │
-        └── Interaction History
-                │
-                ↓
-        Learner-State Interpretation
-                │
-                ↓
-         Adaptive XR Response
-```
-
-The multimodal model tested in this repository represents only one component of this larger architecture.
-
----
-
 ## Repository Contents
 
 ```text
@@ -243,20 +202,3 @@ This is a small proof of concept rather than a validated learner-state estimatio
 The experiment uses only five controlled examples and does not provide evidence that the models can reliably infer cognitive states in real learning environments.
 
 The current behavioral labels are based on manually defined rules.
-
-Future evaluation should include:
-
-* larger interaction datasets,
-* real learner sessions,
-* quantitative evaluation of model observations,
-* physiological and facial signals,
-* temporal fusion across modalities,
-* and validation against independent behavioral or cognitive-state measures.
-
----
-
-## Next Step
-
-The next stage of NeuroTwin is to combine interaction evidence with additional observable signals such as gaze, facial action units, and other physiological or behavioral measures.
-
-The goal is to investigate whether multimodal evidence can support reliable real-time adaptation of an XR learning environment.
